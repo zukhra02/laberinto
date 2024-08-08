@@ -9,6 +9,9 @@ public class MazeSolver {
             {0, 1, 1, 1}
     };
 
+    /**
+     * All positions.
+     */
     private final LinkedList<Position> path = new LinkedList<>();
 
     public static void main(String[] args) {
