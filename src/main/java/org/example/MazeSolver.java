@@ -3,14 +3,16 @@ package org.example;
 import java.util.LinkedList;
 
 public class MazeSolver {
-
-    static int[][] maze = {
+    private static final int[][] MAZE = {
             {1, 0, 1, 2}, // El destino (2) está en la posición (0, 3)
             {1, 1, 0, 1},
             {0, 1, 1, 1}
     };
 
-    LinkedList<Position> path = new LinkedList<>();
+    /**
+     * All positions.
+     */
+    private final LinkedList<Position> path = new LinkedList<>();
 
     public static void main(String[] args) {
         MazeSolver solver = new MazeSolver();
@@ -21,53 +23,53 @@ public class MazeSolver {
         // 2 = destination
 
         solver.path.push(p);
-        solver.maze[p.y][p.x] = 0; // Marcando la posición inicial como visitada
+        MAZE[p.getY()][p.getX()] = 0; // Marcando la posición inicial como visitada
 
         while (true) {
-            int y = solver.path.peek().y;
-            int x = solver.path.peek().x;
+            int y = solver.path.peek().getY();
+            int x = solver.path.peek().getX();
 
             // Down
-            if (y + 1 < solver.maze.length && solver.maze[y + 1][x] == 2) {
+            if (y + 1 < MAZE.length && MAZE[y + 1][x] == 2) {
                 System.out.println("You won");
                 return;
-            } else if (y + 1 < solver.maze.length && solver.maze[y + 1][x] == 1) {
+            } else if (y + 1 < MAZE.length && MAZE[y + 1][x] == 1) {
                 System.out.println("Moved down");
                 solver.path.push(new Position(y + 1, x));
-                solver.maze[y + 1][x] = 0;
+                MAZE[y + 1][x] = 0;
                 continue;
             }
 
             // Left
-            if (x - 1 >= 0 && solver.maze[y][x - 1] == 2) {
+            if (x - 1 >= 0 && MAZE[y][x - 1] == 2) {
                 System.out.println("You won");
                 return;
-            } else if (x - 1 >= 0 && solver.maze[y][x - 1] == 1) {
+            } else if (x - 1 >= 0 && MAZE[y][x - 1] == 1) {
                 System.out.println("Moved left");
                 solver.path.push(new Position(y, x - 1));
-                solver.maze[y][x - 1] = 0;
+                MAZE[y][x - 1] = 0;
                 continue;
             }
 
             // Up
-            if (y - 1 >= 0 && solver.maze[y - 1][x] == 2) {
+            if (y - 1 >= 0 && MAZE[y - 1][x] == 2) {
                 System.out.println("You won");
                 return;
-            } else if (y - 1 >= 0 && solver.maze[y - 1][x] == 1) {
+            } else if (y - 1 >= 0 && MAZE[y - 1][x] == 1) {
                 System.out.println("Moved up");
                 solver.path.push(new Position(y - 1, x));
-                solver.maze[y - 1][x] = 0;
+                MAZE[y - 1][x] = 0;
                 continue;
             }
 
             // Right
-            if (x + 1 < solver.maze[0].length && solver.maze[y][x + 1] == 2) {
+            if (x + 1 < MAZE[0].length && MAZE[y][x + 1] == 2) {
                 System.out.println("You won");
                 return;
-            } else if (x + 1 < solver.maze[0].length && solver.maze[y][x + 1] == 1) {
+            } else if (x + 1 < MAZE[0].length && MAZE[y][x + 1] == 1) {
                 System.out.println("Moved right");
                 solver.path.push(new Position(y, x + 1));
-                solver.maze[y][x + 1] = 0;
+                MAZE[y][x + 1] = 0;
                 continue;
             }
 
@@ -79,16 +81,6 @@ public class MazeSolver {
         }
     }
 
-    // Inner class Position
-    public static class Position {
-        public int x;
-        public int y;
-
-        public Position(int y, int x) {
-            this.x = x;
-            this.y = y;
-        }
-    }
 }
 
 
