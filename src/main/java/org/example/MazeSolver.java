@@ -2,7 +2,19 @@ package org.example;
 
 import java.util.LinkedList;
 
+/**
+ * Класс MazeSolver -это лабиринт, в виде двумерной сетки, где:
+ * 0 - стена, через которую нельзя пройти.
+ * 1 - путь, по которому можно двигаться.
+ * 2 - пункт назначения, к которому нужно добраться.
+ *  Начинаем в левом верхнем углу лабиринта и ищем путь к пункту назначения.
+ */
+
 public class MazeSolver {
+    /**
+     * Cхема лабиринтa.
+     * Пункт назначения (2) находится в позиции (0, 3).
+     */
     private static final int[][] MAZE = {
             {1, 0, 1, 2}, // El destino (2) está en la posición (0, 3)
             {1, 1, 0, 1},
@@ -10,9 +22,19 @@ public class MazeSolver {
     };
 
     /**
-     * All positions.
+     * Пройденный путь через лабиринт.
      */
+
+
     private final LinkedList<Position> path = new LinkedList<>();
+
+    /**
+     * Главный метод, который инициирует процесс решения лабиринта.
+     * Начинаем с позиции (0, 0) и ищем путь к пункту назначения.
+     *
+     * @param args Аргументы командной строки .
+     */
+
 
     public static void main(String[] args) {
         MazeSolver solver = new MazeSolver();
