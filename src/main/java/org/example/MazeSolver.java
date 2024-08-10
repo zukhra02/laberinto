@@ -12,7 +12,7 @@ import java.util.LinkedList;
 
 public class MazeSolver {
     /**
-     * Cхема лабиринта.
+     * Cхема лабиринтa.
      * Пункт назначения (2) находится в позиции (0, 3).
      */
     private static final int[][] MAZE = {
