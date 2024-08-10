@@ -28,6 +28,14 @@ public class MazeSolver {
 
     private final LinkedList<Position> path = new LinkedList<>();
 
+    /**
+     * Главный метод, который инициирует процесс решения лабиринта.
+     * Начинаем с позиции (0, 0) и ищем путь к пункту назначения.
+     *
+     * @param args Аргументы командной строки .
+     */
+
+
     public static void main(String[] args) {
         MazeSolver solver = new MazeSolver();
         Position p = new Position(0, 0); // Inicialización en la posición (0, 0)
