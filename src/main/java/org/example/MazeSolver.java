@@ -11,6 +11,10 @@ import java.util.LinkedList;
  */
 
 public class MazeSolver {
+    /**
+     * Cхема лабиринта.
+     * Пункт назначения (2) находится в позиции (0, 3).
+     */
     private static final int[][] MAZE = {
             {1, 0, 1, 2}, // El destino (2) está en la posición (0, 3)
             {1, 1, 0, 1},
