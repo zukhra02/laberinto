@@ -22,8 +22,10 @@ public class MazeSolver {
     };
 
     /**
-     * All positions.
+     * Пройденный путь через лабиринт.
      */
+
+
     private final LinkedList<Position> path = new LinkedList<>();
 
     public static void main(String[] args) {
